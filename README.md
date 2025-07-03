@@ -1,8 +1,9 @@
 # GNN-Polymer-Prediction-NeurIPS
+(English | Português | Español | Pусский)
 
 ---
 
-Unlocking the Future of Polymers: Property Prediction with Artificial Intelligence
+## Unlocking the Future of Polymers: Property Prediction with Artificial Intelligence
 Have you ever wondered how to create materials with specific properties to innovate products, from packaging to electric cars? This project demonstrates how artificial intelligence (AI) can accelerate the discovery and development of new polymers, predicting their essential characteristics even before they are synthesized in a laboratory.
 
 Who is this for? Materials chemists, product engineers, researchers, and anyone interested in accelerating innovation in materials science.
@@ -53,7 +54,7 @@ Connect to discuss how AI can transform your research or business!
 
 ---
 
-Desvendando o Futuro dos Polímeros: Previsão de Propriedades com Inteligência Artificial
+## Desvendando o Futuro dos Polímeros: Previsão de Propriedades com Inteligência Artificial
 Você já se perguntou como criar materiais com propriedades específicas para inovar produtos, da embalagem aos carros elétricos? Este projeto demonstra como a inteligência artificial (IA) pode acelerar a descoberta e o desenvolvimento de novos polímeros, prevendo suas características essenciais antes mesmo de serem sintetizados em laboratório.
 
 Para quem é isso? Químicos de materiais, engenheiros de produto, pesquisadores e qualquer pessoa interessada em acelerar a inovação em materiais.
@@ -104,7 +105,7 @@ Conecte-se para discutir como a IA pode transformar sua pesquisa ou seu negócio
 
 ---
 
-Desvelando el Futuro de los Polímeros: Predicción de Propiedades con Inteligencia Artificial
+## Desvelando el Futuro de los Polímeros: Predicción de Propiedades con Inteligencia Artificial
 ¿Alguna vez te has preguntado cómo crear materiales con propiedades específicas para innovar productos, desde el embalaje hasta los coches eléctricos? Este proyecto demuestra cómo la inteligencia artificial (IA) puede acelerar el descubrimiento y desarrollo de nuevos polímeros, prediciendo sus características esenciales incluso antes de que sean sintetizados en un laboratorio.
 
 ¿Para quién es esto? Químicos de materiales, ingenieros de producto, investigadores y cualquier persona interesada en acelerar la innovación en la ciencia de materiales.
@@ -155,7 +156,7 @@ Explora el código en este repositorio para comprender los detalles técnicos. E
 
 ---
 
-Раскрывая Будущее Полимеров: Прогнозирование Свойств с Помощью Искусственного Интеллекта
+## Раскрывая Будущее Полимеров: Прогнозирование Свойств с Помощью Искусственного Интеллекта
 Вы когда-нибудь задумывались, как создавать материалы с конкретными свойствами для инновационных продуктов, от упаковки до электромобилей? Этот проект демонстрирует, как искусственный интеллект (ИИ) может ускорить открытие и разработку новых полимеров, предсказывая их основные характеристики еще до того, как они будут синтезированы в лаборатории.
 
 Для кого это? Химики-материаловеды, инженеры по продуктам, исследователи и все, кто заинтересован в ускорении инноваций в материаловедении.
