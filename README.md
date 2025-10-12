@@ -30,7 +30,7 @@ Preparing the Data: The data is cleaned and organized, handling missing informat
 
 Building the Prediction "Brain" (Custom GNN): A personalized Graph Neural Network is created, which "sees" the relationships between different polymers based on their similarities. This network is trained to learn patterns and predict properties.
 
-Measuring Success (wMAE): The model's accuracy is evaluated using a metric called wMAE (Weighted Mean Absolute Error). The model was able to achieve a wMAE of 0.172, demonstrating high accuracy in its predictions.
+Measuring Success (wMAE): The model's accuracy is evaluated using a metric called wMAE (Weighted Mean Absolute Error). The model was able to achieve a wMAE of 0.148, demonstrating high accuracy in its predictions.
 
 Fully Automated: To ensure anyone can replicate and validate these results, the entire process is automated.
 
@@ -81,7 +81,7 @@ Preparando os Dados: Os dados são limpos e organizados, tratando informações 
 
 Construindo o "Cérebro" da Previsão (GNN Customizada): Uma Rede Neural Gráfica personalizada é criada, que "enxerga" as relações entre diferentes polímeros com base em suas similaridades. Essa rede é treinada para aprender os padrões e prever as propriedades.
 
-Medindo o Sucesso (wMAE): A precisão do modelo é avaliada usando uma métrica chamada wMAE (Weighted Mean Absolute Error). O modelo foi capaz de atingir um wMAE de 0.172, demonstrando alta acurácia nas previsões.
+Medindo o Sucesso (wMAE): A precisão do modelo é avaliada usando uma métrica chamada wMAE (Weighted Mean Absolute Error). O modelo foi capaz de atingir um wMAE de 0.148, demonstrando alta acurácia nas previsões.
 
 Tudo Automatizado: Para garantir que qualquer pessoa possa replicar e validar esses resultados, todo o processo é automatizado.
 
@@ -132,7 +132,7 @@ Preparando los Datos: Los datos se limpian y organizan, manejando la informació
 
 Construyendo el "Cerebro" de Predicción (GNN Personalizada): Se crea una Red Neuronal Gráfica personalizada, que "ve" las relaciones entre diferentes polímeros basándose en sus similitudes. Esta red es entrenada para aprender patrones y predecir propiedades.
 
-Midiendo el Éxito (wMAE): La precisión del modelo se evalúa utilizando una métrica llamada wMAE (Error Absoluto Medio Ponderado). El modelo logró alcanzar un wMAE de 0.172, demostrando una alta precisión en sus predicciones.
+Midiendo el Éxito (wMAE): La precisión del modelo se evalúa utilizando una métrica llamada wMAE (Error Absoluto Medio Ponderado). El modelo logró alcanzar un wMAE de 0.148, demostrando una alta precisión en sus predicciones.
 
 Totalmente Automatizado: Para asegurar que cualquiera pueda replicar y validar estos resultados, todo el proceso está automatizado.
 
@@ -183,7 +183,7 @@ Tg (Температура Стеклования): Важно для опред
 
 Создание "Мозга" Прогнозирования (Пользовательская GNN): Создается персонализированная Графовая Нейронная Сеть, которая "видит" взаимосвязи между различными полимерами на основе их сходства. Эта сеть обучается для выявления закономерностей и прогнозирования свойств.
 
-Измерение Успеха (wMAE): Точность модели оценивается с использованием метрики под названием wMAE (Взвешенная Средняя Абсолютная Ошибка). Модель смогла достичь wMAE 0.172, демонстрируя высокую точность в своих прогнозах.
+Измерение Успеха (wMAE): Точность модели оценивается с использованием метрики под названием wMAE (Взвешенная Средняя Абсолютная Ошибка). Модель смогла достичь wMAE 0.148, демонстрируя высокую точность в своих прогнозах.
 
 Полностью Автоматизировано: Чтобы гарантировать, что любой может воспроизвести и проверить эти результаты, весь процесс автоматизирован.
 
