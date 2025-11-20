@@ -313,6 +313,15 @@ print(f"\nWeighted MAE (wMAE) no conjunto de treino: {wmae_train:.6f}")
 with torch.no_grad():
     predictions = model(x_all, edge_index)[test_mask].cpu().numpy()
 
+import torch
+from pathlib import Path
+
+# Criar pasta 'model' se não existir
+Path("model").mkdir(exist_ok=True)
+
+# Salvar os pesos do modelo treinado
+torch.save(model.state_dict(), "model/simple_gnn.pt")
+
 # Submissão | Envío | Сабмишн | Submission
 submission = pd.DataFrame({'id': test['id']})
 for i, col in enumerate(target_cols):
