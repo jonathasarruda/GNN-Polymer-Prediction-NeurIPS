@@ -1,14 +1,12 @@
 import torch
-from gnn_polymer_predictor import SimpleGNN  # ajuste se a classe estiver em outro arquivo
+from gnn_polymer_predictor import SimpleGNN
 
 class ModelService:
     def __init__(self):
-        # Parâmetros do modelo — ajuste conforme seu projeto
-        in_channels = 128
-        hidden_channels = 256
-        out_channels = 10
+        in_channels = 128          # ou x_all.shape[1] se quiser calcular dinamicamente
+        hidden_channels = 64       # confirmado no seu código
+        out_channels = 5           # confirmado via target_cols
 
-        # Reconstruir a arquitetura
         self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
         self.model.load_state_dict(torch.load("model/simple_gnn.pt", map_location="cpu"))
         self.model.eval()
