@@ -1,4 +1,14 @@
-Dependências Python necessárias para executar o código fornecido:
+pandas==2.2.3
+
+numpy==1.26.4
+
+scikit-learn==1.2.2
+
+torch==2.6.0
+
+joblib==1.5.0
+
+
 
 pandas==2.2.3
 
@@ -12,8 +22,6 @@ joblib==1.5.0
 
 
 
-Dependencias de Python necesarias para ejecutar el código proporcionado:
-
 pandas==2.2.3
 
 numpy==1.26.4
@@ -26,8 +34,6 @@ joblib==1.5.0
 
 
 
-Необходимые зависимости Python для выполнения предоставленного кода:
-
 pandas==2.2.3
 
 numpy==1.26.4
@@ -38,17 +44,4 @@ torch==2.6.0
 
 joblib==1.5.0
 
-
-
-Required Python dependencies to run the provided code:
-
-pandas==2.2.3
-
-numpy==1.26.4
-
-scikit-learn==1.2.2
-
-torch==2.6.0
-
-joblib==1.5.0
 
