@@ -1,3 +1,6 @@
+import os
+print("📁 Arquivos na pasta model:", os.listdir("model"))
+
 import torch
 import traceback
 from gnn_polymer_predictor import SimpleGNN
