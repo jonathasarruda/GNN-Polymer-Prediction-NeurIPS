@@ -3,28 +3,27 @@ from gnn_polymer_predictor import SimpleGNN
 
 class ModelService:
     def __init__(self):
-        try:
-            checkpoint = torch.load("model/simple_gnn.pt", map_location="cpu")
+        # Carrega o checkpoint salvo no Kaggle
+        checkpoint = torch.load("model/simple_gnn.pt", map_location="cpu")
 
-            # Se for dict com metadados
-            if isinstance(checkpoint, dict) and "state_dict" in checkpoint:
-                in_channels = checkpoint.get("in_channels", 17)
-                hidden_channels = checkpoint.get("hidden_channels", 64)
-                out_channels = checkpoint.get("out_channels", 5)
-                state_dict = checkpoint["state_dict"]
-            else:
-                # Se for apenas state_dict puro
-                in_channels = 17
-                hidden_channels = 64
-                out_channels = 5
-                state_dict = checkpoint
+        # Se o arquivo tiver metadados, usa eles
+        if isinstance(checkpoint, dict) and "state_dict" in checkpoint:
+            in_channels = checkpoint.get("in_channels")
+            hidden_channels = checkpoint.get("hidden_channels", 64)
+            out_channels = checkpoint.get("out_channels")
+            state_dict = checkpoint["state_dict"]
+        else:
+            # Caso seja apenas state_dict puro (sem metadados)
+            # ⚠️ Aqui você precisa colocar os valores reais usados no treino
+            in_channels = 17
+            hidden_channels = 64
+            out_channels = 5
+            state_dict = checkpoint
 
-            self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
-            self.model.load_state_dict(state_dict)
-            self.model.eval()
-
-        except Exception as e:
-            print("Erro ao carregar o modelo:", e)
+        # Instancia o modelo com os parâmetros corretos
+        self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
+        self.model.load_state_dict(state_dict)
+        self.model.eval()
 
     def predict(self, x_all, edge_index, mask=None):
         with torch.no_grad():
@@ -32,5 +31,3 @@ class ModelService:
             if mask is not None:
                 out = out[mask]
             return out.cpu().numpy()
-
-
