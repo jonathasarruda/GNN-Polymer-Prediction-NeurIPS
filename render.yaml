@@ -2,5 +2,7 @@ services:
   - type: web
     name: gnn-polymer-prediction
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
+      python gnn_polymer_predictor.py
     startCommand: uvicorn main:app --host=0.0.0.0 --port=$PORT
