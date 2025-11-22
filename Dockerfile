@@ -20,5 +20,5 @@ WORKDIR /app
 
 RUN ls -lh /app/model/
 
-# Inicia o serviço
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+# Inicia o serviço (PORT dinâmica do Render)
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT}"]
