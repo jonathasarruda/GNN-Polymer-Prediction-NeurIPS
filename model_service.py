@@ -1,9 +1,9 @@
 import os
-print("📁 Arquivos na pasta model:", os.listdir("model"))
-
 import torch
 import traceback
 from gnn_polymer_predictor import SimpleGNN
+
+print("📁 Conteúdo da pasta model:", os.listdir("model"))
 
 class ModelService:
     def __init__(self):
@@ -40,3 +40,10 @@ class ModelService:
             print("❌ Erro ao carregar o modelo:")
             traceback.print_exc()
             raise e  # força o Render a mostrar o erro e parar aqui
+
+    def predict(self, x_all, edge_index, mask=None):
+        with torch.no_grad():
+            out = self.model(x_all, edge_index)
+            if mask is not None:
+                out = out[mask]
+            return out.cpu().numpy()
