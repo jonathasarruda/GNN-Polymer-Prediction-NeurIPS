@@ -1,0 +1,14 @@
+# Ignora arquivos temporários e desnecessários
+__pycache__/
+*.pyc
+*.log
+*.ipynb_checkpoints
+.kaggle/
+*.csv
+*.xlsx
+*.tmp
+*.bak
+
+# NÃO ignore a pasta model/ nem arquivos .pt
+# model/
+# *.pt
