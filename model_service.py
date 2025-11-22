@@ -5,6 +5,7 @@ from gnn_polymer_predictor import SimpleGNN
 class ModelService:
     def __init__(self):
         try:
+            # Tenta carregar o checkpoint salvo no Kaggle
             checkpoint = torch.load("model/simple_gnn.pt", map_location="cpu")
 
             # Caso 1: arquivo tem metadados + state_dict
@@ -14,19 +15,21 @@ class ModelService:
                 out_channels = checkpoint.get("out_channels", 5)
                 state_dict = checkpoint["state_dict"]
             else:
-                # Caso 2: arquivo é só state_dict
+                # Caso 2: arquivo é só state_dict puro
+                # ⚠️ Use os valores reais do treino aqui
                 in_channels = 17
                 hidden_channels = 64
                 out_channels = 5
                 state_dict = checkpoint
 
+            # Instancia o modelo com os parâmetros corretos
             self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
             self.model.load_state_dict(state_dict)
             self.model.eval()
 
         except Exception as e:
             print("❌ Erro ao carregar o modelo:")
-            traceback.print_exc()  # mostra o erro completo nos logs
+            traceback.print_exc()  # Mostra o erro real nos logs do Render
 
     def predict(self, x_all, edge_index, mask=None):
         with torch.no_grad():
