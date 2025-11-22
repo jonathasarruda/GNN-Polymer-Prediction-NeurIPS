@@ -3,17 +3,15 @@ from gnn_polymer_predictor import SimpleGNN
 
 class ModelService:
     def __init__(self):
-        in_channels = 17           # igual ao x_all.shape[1] no Kaggle
-        hidden_channels = 64       
-        out_channels = 6           # igual ao len(target_cols) no Kaggle
+        checkpoint = torch.load("model/simple_gnn.pt", map_location="cpu")
+
+        # Detecta automaticamente os parâmetros salvos
+        in_channels = checkpoint.get("in_channels", 17)
+        hidden_channels = checkpoint.get("hidden_channels", 64)
+        out_channels = checkpoint.get("out_channels", 5)
 
         self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
-        
-        try:
-            self.model.load_state_dict(torch.load("model/simple_gnn.pt", map_location="cpu"))
-        except Exception as e:
-            print("Erro ao carregar os pesos do modelo:", e)
-        
+        self.model.load_state_dict(checkpoint["state_dict"] if "state_dict" in checkpoint else checkpoint)
         self.model.eval()
 
     def predict(self, x_all, edge_index, mask=None):
