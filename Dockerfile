@@ -18,5 +18,7 @@ RUN pip install -r requirements.txt
 COPY . /app
 WORKDIR /app
 
+RUN ls -lh /app/model/
+
 # Inicia o serviço
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
