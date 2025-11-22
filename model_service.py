@@ -1,4 +1,5 @@
 import torch
+import traceback
 from gnn_polymer_predictor import SimpleGNN
 
 class ModelService:
@@ -14,7 +15,7 @@ class ModelService:
                 state_dict = checkpoint["state_dict"]
             else:
                 # Caso 2: arquivo é só state_dict
-                in_channels = 17   # valores usados no treino
+                in_channels = 17
                 hidden_channels = 64
                 out_channels = 5
                 state_dict = checkpoint
@@ -24,7 +25,8 @@ class ModelService:
             self.model.eval()
 
         except Exception as e:
-            print("Erro ao carregar o modelo:", e)
+            print("❌ Erro ao carregar o modelo:")
+            traceback.print_exc()  # mostra o erro completo nos logs
 
     def predict(self, x_all, edge_index, mask=None):
         with torch.no_grad():
