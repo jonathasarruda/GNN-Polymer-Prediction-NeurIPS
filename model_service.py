@@ -15,6 +15,7 @@ class ModelService:
             checkpoint = torch.load(checkpoint_path, map_location="cpu")
             print("✅ Checkpoint carregado com sucesso")
 
+            # Detecta formato do checkpoint
             if isinstance(checkpoint, dict) and "state_dict" in checkpoint:
                 print("📦 Checkpoint contém metadados")
                 in_channels = checkpoint.get("in_channels", 17)
@@ -30,6 +31,7 @@ class ModelService:
 
             print(f"📐 Parâmetros detectados: in={in_channels}, hidden={hidden_channels}, out={out_channels}")
 
+            # Cria o modelo
             self.model = SimpleGNN(in_channels, hidden_channels, out_channels)
             self.model.load_state_dict(state_dict)
             self.model.eval()
@@ -44,6 +46,10 @@ class ModelService:
     def predict(self, x_all, edge_index, mask=None):
         with torch.no_grad():
             out = self.model(x_all, edge_index)
+
+            # Retorna só os nós selecionados
             if mask is not None:
-                out = out[mask]
+                return out[mask].cpu().numpy()
+
+            # Ou retorna todos os nós
             return out.cpu().numpy()
