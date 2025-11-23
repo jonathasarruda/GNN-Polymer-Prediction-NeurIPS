@@ -322,6 +322,19 @@ Path("model").mkdir(exist_ok=True)
 # Salvar os pesos do modelo treinado
 torch.save(model.state_dict(), "model/simple_gnn.pt")
 
+from pathlib import Path
+Path("model").mkdir(exist_ok=True)
+
+# Salvar modelo
+torch.save(model.state_dict(), "model/simple_gnn.pt")
+
+# 🟢 Salvar grafo completo
+torch.save(x_all.cpu(), "model/x_all.pt")
+torch.save(edge_index.cpu(), "model/edge_index.pt")
+
+print("Arquivos salvos:")
+print(os.listdir("model"))
+
 # Submissão | Envío | Сабмишн | Submission
 submission = pd.DataFrame({'id': test['id']})
 for i, col in enumerate(target_cols):
