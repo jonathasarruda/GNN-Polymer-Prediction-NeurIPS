@@ -5,35 +5,46 @@ import torch
 print("🚀 Iniciando FastAPI...")
 
 app = FastAPI()
-service = None  # não carrega imediatamente
+service = None  # carregado apenas na primeira chamada
 
 class PredictInput(BaseModel):
-    x_all: list
-    edge_index: list
-    mask: list | None = None
+    mask: list  # índices dos nós que você quer prever
 
 class PredictOutput(BaseModel):
     predictions: list
+
 
 @app.get("/")
 def root():
     return {"status": "ok", "message": "API está rodando"}
 
+
 @app.post("/predict", response_model=PredictOutput)
 def predict(payload: PredictInput):
     global service
+
+    # Carrega o serviço e o grafo completo apenas na primeira chamada
     if service is None:
-        print("📦 Carregando ModelService pela primeira vez...")
+        print("📦 Carregando ModelService e grafo completo pela primeira vez...")
+
         from model_service import ModelService
-        service = ModelService()  # carrega só na primeira chamada
+        service = ModelService()
+
+        # Carrega o grafo que o modelo realmente usa
+        service.x_all = torch.load("model/x_all.pt")          # shape [N, 17]
+        service.edge_index = torch.load("model/edge_index.pt") # shape [2, E]
+
+        print("✅ Grafo carregado.")
 
     try:
-        x_tensor = torch.tensor(payload.x_all, dtype=torch.float)
-        edge_tensor = torch.tensor(payload.edge_index, dtype=torch.long)
-        mask_tensor = torch.tensor(payload.mask, dtype=torch.bool) if payload.mask else None
+        # Converte máscara vinda da requisição
+        mask_tensor = torch.tensor(payload.mask, dtype=torch.long)
 
-        preds = service.predict(x_tensor, edge_tensor, mask_tensor)
+        # Chama a predição real
+        preds = service.predict(service.x_all, service.edge_index, mask_tensor)
+
         return PredictOutput(predictions=preds.tolist())
+
     except Exception as e:
         import traceback
         print("❌ Erro durante a predição:")
